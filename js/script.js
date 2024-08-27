@@ -19,3 +19,30 @@ Consigli del giorno:
 * Individuate gli elementi di cui avete bisogno per realizzare il programma.
 * Immaginate la logica come fosse uno snack: "Dati 2 array di numeri, indica quali e quanti numeri ci sono in comune tra i due array"
 */
+
+//prendo elementi dal DOM
+const display = document.getElementById('display');
+const randomNum = document.getElementById('random-num');
+const rng1 = document.getElementById('first-rng-num');
+const rng2 = document.getElementById('second-rng-num');
+const rng3 = document.getElementById('third-rng-num');
+const rng4 = document.getElementById('fourth-rng-num');
+const rng5 = document.getElementById('fifth-rng-num');
+const form = document.getElementById('form');
+const num1Field = document.getElementById('first-num');
+const num2Field = document.getElementById('secondt-num');
+const num3Field = document.getElementById('third-num');
+const num4Field = document.getElementById('fourth-num');
+const num5Field = document.getElementById('fifth-num');
+
+let seconds = 7;
+display.innerText = seconds;
+const countdown = setInterval(() => {
+    display.innerText = --seconds;
+}, 1000);
+
+setTimeout(() => {
+    clearInterval(countdown);
+    form.classList.remove('d-none');
+    randomNum.classList.add('d-none');
+}, 7000);

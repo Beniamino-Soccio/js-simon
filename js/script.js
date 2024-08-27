@@ -23,17 +23,8 @@ Consigli del giorno:
 //prendo elementi dal DOM
 const display = document.getElementById('display');
 const randomNum = document.getElementById('random-num');
-const rng1 = document.getElementById('first-rng-num');
-const rng2 = document.getElementById('second-rng-num');
-const rng3 = document.getElementById('third-rng-num');
-const rng4 = document.getElementById('fourth-rng-num');
-const rng5 = document.getElementById('fifth-rng-num');
 const form = document.getElementById('form');
-const num1Field = document.getElementById('first-num');
-const num2Field = document.getElementById('secondt-num');
-const num3Field = document.getElementById('third-num');
-const num4Field = document.getElementById('fourth-num');
-const num5Field = document.getElementById('fifth-num');
+const button = document.getElementById('button');
 
 const rngArray = [];
 const getRandomNumber = () => {
@@ -62,3 +53,32 @@ setTimeout(() => {
     form.classList.remove('d-none');
     randomNum.classList.add('d-none');
 }, 7000);
+
+let formArray = [];
+button.addEventListener('click', function(event){
+    event.preventDefault();
+    //raccolgo gli elementi all'interno del form del DOM
+    const num1 = parseInt(document.getElementById('first-num').value);
+    const num2 = parseInt(document.getElementById('second-num').value);
+    const num3 = parseInt(document.getElementById('third-num').value);
+    const num4 = parseInt(document.getElementById('fourth-num').value);
+    const num5 = parseInt(document.getElementById('fifth-num').value);
+    //creo array con numeri inseriti nel form
+    //formArray = [Number(num1), Number(num2), Number(num3), Number(num4), Number(num5)];
+    formArray = [num1, num2, num3, num4, num5];
+    
+    console.log(formArray);
+    //creo array dove depositare i numeri uguali
+    let correctNums = [];
+
+    for (let i = 0; i < rngArray.length; i++) {
+        // Se il numero è presente anche nel secondo array e non è già nell'array dei numeri corretti
+        if (formArray.includes(rngArray[i]) && !correctNums.includes(rngArray[i])) {
+            correctNums.push(rngArray[i]);
+        }
+    }
+    let count = correctNums.length;
+
+    document.getElementById('result').innerText = `hai inserito ${count} numero corretti e sono : ${correctNums}`;
+    
+})

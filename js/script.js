@@ -35,6 +35,22 @@ const num3Field = document.getElementById('third-num');
 const num4Field = document.getElementById('fourth-num');
 const num5Field = document.getElementById('fifth-num');
 
+const rngArray = [];
+const getRandomNumber = () => {
+     
+    
+    while (rngArray.length < 5){
+       const randomNum = Math.floor(Math.random() * 100) +1;
+       if (!rngArray.includes(randomNum)){
+        rngArray.push(randomNum);
+       }
+    }
+   return rngArray;
+   
+}
+randomNum.innerText = getRandomNumber();
+console.log(rngArray);
+
 let seconds = 7;
 display.innerText = seconds;
 const countdown = setInterval(() => {
